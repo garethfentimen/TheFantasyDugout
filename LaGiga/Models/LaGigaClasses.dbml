@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LaGiga-10-08-2011" Class="LaGigaClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=GCOMP-1744692;Initial Catalog=LaGiga-10-08-2011;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ApplicationServices" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Player" Member="Players">
+    <Type Name="Player">
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NationalTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Player_Event" Member="Events" ThisKey="PlayerID" OtherKey="PlayerID" Type="Event" />
+      <Association Name="Player_UserPlayer" Member="UserPlayers" ThisKey="PlayerID" OtherKey="PlayerID" Type="UserPlayer" />
+      <Association Name="Player_Transfer" Member="Transfers" ThisKey="PlayerID" OtherKey="PlayerID" Type="Transfer" />
+      <Association Name="Player_WeekUserPlayer" Member="WeekUserPlayers" ThisKey="PlayerID" OtherKey="PlayerID" Type="WeekUserPlayer" />
+      <Association Name="Player_TheList" Member="TheLists" ThisKey="PlayerID" OtherKey="PlayerID" Type="TheList" />
+      <Association Name="Team_Player" Member="Team" ThisKey="TeamID" OtherKey="TeamID" Type="Team" IsForeignKey="true" />
+      <Association Name="Team_Player1" Member="Team1" ThisKey="NationalTeamID" OtherKey="TeamID" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fixture" Member="Fixtures">
+    <Type Name="Fixture">
+      <Column Name="FixtureID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HomeTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AwayTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HomeScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AwayScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Week_Fixture" Member="Week" ThisKey="WeekID" OtherKey="WeekID" Type="Week" IsForeignKey="true" />
+      <Association Name="Team_Fixture" Member="Team" ThisKey="AwayTeamID" OtherKey="TeamID" Type="Team" IsForeignKey="true" />
+      <Association Name="Team_Fixture1" Member="Team1" ThisKey="HomeTeamID" OtherKey="TeamID" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventType" Member="EventTypes">
+    <Type Name="EventType">
+      <Column Name="EventTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Points" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PositionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Master" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="EventType_Event" Member="Events" ThisKey="EventTypeID" OtherKey="EventTypeID" Type="Event" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Event" Member="Events">
+    <Type Name="Event">
+      <Column Name="EventID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EventTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FixtureID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromMinute" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ToMinute" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Points" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="EventType_Event" Member="EventType" ThisKey="EventTypeID" OtherKey="EventTypeID" Type="EventType" IsForeignKey="true" />
+      <Association Name="Player_Event" Member="Player" ThisKey="PlayerID" OtherKey="PlayerID" Type="Player" IsForeignKey="true" />
+      <Association Name="Week_Event" Member="Week" ThisKey="WeekID" OtherKey="WeekID" Type="Week" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SeasonResult" Member="SeasonResults">
+    <Type Name="SeasonResult">
+      <Column Name="SeasonResultID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Won" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Drawn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Lost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GoalsScored" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="Points" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="UserTeam_SeasonResult" Member="UserTeam" ThisKey="UserTeamID" OtherKey="UserTeamID" Type="UserTeam" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserFixtureCalculation" Member="UserFixtureCalculations">
+    <Type Name="UserFixtureCalculation">
+      <Column Name="UserFixtureCalculationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WeekNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserTeamIDA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserTeamIDB" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoPlayers" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="UserTeam_UserFixtureCalculation" Member="UserTeam" ThisKey="UserTeamIDA" OtherKey="UserTeamID" Type="UserTeam" IsForeignKey="true" />
+      <Association Name="UserTeam_UserFixtureCalculation1" Member="UserTeam1" ThisKey="UserTeamIDB" OtherKey="UserTeamID" Type="UserTeam" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTeam" Member="UserTeams">
+    <Type Name="UserTeam">
+      <Column Name="UserTeamID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="UserTeam_SeasonResult" Member="SeasonResults" ThisKey="UserTeamID" OtherKey="UserTeamID" Type="SeasonResult" />
+      <Association Name="UserTeam_UserFixtureCalculation" Member="UserFixtureCalculations" ThisKey="UserTeamID" OtherKey="UserTeamIDA" Type="UserFixtureCalculation" />
+      <Association Name="UserTeam_UserFixtureCalculation1" Member="UserFixtureCalculations1" ThisKey="UserTeamID" OtherKey="UserTeamIDB" Type="UserFixtureCalculation" />
+      <Association Name="UserTeam_UserPlayer" Member="UserPlayers" ThisKey="UserTeamID" OtherKey="UserTeamID" Type="UserPlayer" />
+      <Association Name="UserGroup_UserTeam" Member="UserGroup" ThisKey="UserGroupID" OtherKey="UserGroupID" Type="UserGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPlayer" Member="UserPlayers">
+    <Type Name="UserPlayer">
+      <Column Name="UserPlayerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompetitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Player_UserPlayer" Member="Player" ThisKey="PlayerID" OtherKey="PlayerID" Type="Player" IsForeignKey="true" />
+      <Association Name="UserTeam_UserPlayer" Member="UserTeam" ThisKey="UserTeamID" OtherKey="UserTeamID" Type="UserTeam" IsForeignKey="true" />
+      <Association Name="UserGroup_UserPlayer" Member="UserGroup" ThisKey="UserGroupID" OtherKey="UserGroupID" Type="UserGroup" IsForeignKey="true" />
+      <Association Name="Competition_UserPlayer" Member="Competition" ThisKey="CompetitionID" OtherKey="CompetitionID" Type="Competition" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transfer" Member="Transfers">
+    <Type Name="Transfer">
+      <Column Name="TransferId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TransferFee" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Player_Transfer" Member="Player" ThisKey="PlayerID" OtherKey="PlayerID" Type="Player" IsForeignKey="true" />
+      <Association Name="Team_Transfer" Member="Team" ThisKey="TeamID" OtherKey="TeamID" Type="Team" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Week" Member="Weeks">
+    <Type Name="Week">
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WeekName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CompetitionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentWeek" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="WeekNo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Week_Fixture" Member="Fixtures" ThisKey="WeekID" OtherKey="WeekID" Type="Fixture" />
+      <Association Name="Week_Event" Member="Events" ThisKey="WeekID" OtherKey="WeekID" Type="Event" />
+      <Association Name="Week_TheList" Member="TheLists" ThisKey="WeekID" OtherKey="WeekID" Type="TheList" />
+      <Association Name="Competition_Week" Member="Competition" ThisKey="CompetitionID" OtherKey="CompetitionID" Type="Competition" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserGroup" Member="UserGroups">
+    <Type Name="UserGroup">
+      <Column Name="UserGroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NoPlayers" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="UserGroup_UserTeam" Member="UserTeams" ThisKey="UserGroupID" OtherKey="UserGroupID" Type="UserTeam" />
+      <Association Name="UserGroup_UserPlayer" Member="UserPlayers" ThisKey="UserGroupID" OtherKey="UserGroupID" Type="UserPlayer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeekUserPlayer" Member="WeekUserPlayers">
+    <Type Name="WeekUserPlayer">
+      <Column Name="WeekUserPlayerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserTeamID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Draft" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Player_WeekUserPlayer" Member="Player" ThisKey="PlayerID" OtherKey="PlayerID" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Team" Member="Teams">
+    <Type Name="Team">
+      <Column Name="TeamID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TeamName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TeamTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="InActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Team_Player" Member="Players" ThisKey="TeamID" OtherKey="TeamID" Type="Player" />
+      <Association Name="Team_Player1" Member="Players1" ThisKey="TeamID" OtherKey="NationalTeamID" Type="Player" />
+      <Association Name="Team_Fixture" Member="Fixtures" ThisKey="TeamID" OtherKey="AwayTeamID" Type="Fixture" />
+      <Association Name="Team_Fixture1" Member="Fixtures1" ThisKey="TeamID" OtherKey="HomeTeamID" Type="Fixture" />
+      <Association Name="Team_Transfer" Member="Transfers" ThisKey="TeamID" OtherKey="TeamID" Type="Transfer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Competition" Member="Competitions">
+    <Type Name="Competition">
+      <Column Name="CompetitionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentCompetition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FromDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ToDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SquadSize" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TeamTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Competition_UserPlayer" Member="UserPlayers" ThisKey="CompetitionID" OtherKey="CompetitionID" Type="UserPlayer" />
+      <Association Name="Competition_Week" Member="Weeks" ThisKey="CompetitionID" OtherKey="CompetitionID" Type="Week" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TheList" Member="TheLists">
+    <Type Name="TheList">
+      <Column Name="TheListID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WeekID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalPoints" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="WeekPoints" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="GoalsScored" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Assists" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GoalsConceeded" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CleanSheets" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="YellowCards" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RedCards" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinutesPlayed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Player_TheList" Member="Player" ThisKey="PlayerID" OtherKey="PlayerID" Type="Player" IsForeignKey="true" />
+      <Association Name="Week_TheList" Member="Week" ThisKey="WeekID" OtherKey="WeekID" Type="Week" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,68 @@
+<%@ Master Language="VB" MasterPageFile="~/Views/Shared/Master.Master" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="LaGiga" %>
+    
+    <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="HeadPlaceHolder" runat="server">
+        <%= Html.RegCss("FrontEndMaster.css")%>
+
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-25114624-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            $(document).ready(function () {
+
+                $("#inputBtnSignIn").click(function () {
+                    $("#logindisplay").toggle(150);
+                });
+
+                $("#inputBtnMenu").click(function () {
+                    $("#logindisplay").toggle(150);
+                });
+
+                $("#main").click(function () {
+                    $("#logindisplay").hide(150);
+                });
+
+            });
+
+        </script>
+
+        <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content3" ContentPlaceHolderID="HeaderMainContent" runat="server">
+        <% If Request.IsAuthenticated Then %>
+            <div id="divTheFantasyDugoutMenu">
+                <input type="button" href="#" id="inputBtnMenu" class="FantasyDugoutButton" value="Menu" />
+            </div>
+            <div id="divLogOff">
+                <%: Html.ActionLink("Log Off", "LogOff", "Account")%>
+            </div>
+        <% Else %>
+            <div id="divTheFantasyDugoutSignIn">
+                <input type="button" href="#" id="inputBtnSignIn" class="FantasyDugoutButton" value="Sign In" />
+            </div>
+        <% End If %>
+        <div id="logindisplay">
+            <% Html.RenderPartial("LogOnUserControl", Model.LaGigaLogon)%>                
+        </div> 
+    </asp:Content>
+
+    <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content5" ContentPlaceHolderID="FooterMainContent" runat="server">
+        <asp:ContentPlaceHolder ID="Footer" runat="server" />
+    </asp:Content>

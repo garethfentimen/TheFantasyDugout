@@ -1,0 +1,23 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/Views/Shared/Master.Master" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="LaGiga" %>
+
+    <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="HeadPlaceHolder" runat="server">
+        <%= Html.RegCss("Site.css")%>
+        <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content3" ContentPlaceHolderID="HeaderMainContent" runat="server">
+        <asp:ContentPlaceHolder ID="HeaderMainContent" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </asp:Content>
+
+    <asp:Content ID="Content5" ContentPlaceHolderID="FooterMainContent" runat="server">
+        <asp:ContentPlaceHolder ID="Footer" runat="server" />
+    </asp:Content>

@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11E655EC-BEB1-4D90-B32D-389FE48E83E4}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LaGiga</RootNamespace>
+    <AssemblyName>LaGiga</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>LaGiga.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>LaGiga.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="ApplicationServices-Deployment" Order="2">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bAttachDbFilename=|DataDirectory|\LaGiga.mdf%3bIntegrated Security=True%3bUser Instance=True" ScriptSchema="False" ScriptData="True" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Release\AutoScripts\ApplicationServices-Deployment_DataOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="LaGigaConnectionString-Deployment" Order="3">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bAttachDbFilename=|DataDirectory|\LaGiga.mdf%3bIntegrated Security=True%3bUser Instance=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Release\AutoScripts\LaGigaConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.1.267.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Mvc" />
+    <Import Include="System.Web.Mvc.Ajax" />
+    <Import Include="System.Web.Mvc.Html" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationRoutes.vb" />
+    <Compile Include="App_Start\AutoMapperCommon.vb" />
+    <Compile Include="App_Start\NinjectCommon.vb" />
+    <Compile Include="Controllers\Admin\CompetitionController.vb" />
+    <Compile Include="Controllers\Admin\EventController.vb" />
+    <Compile Include="Models\TheList\PagingCalculator.vb" />
+    <Compile Include="Helpers\Formations\FiveThreeTwo.vb" />
+    <Compile Include="Helpers\Formations\FormationFinder.vb" />
+    <Compile Include="Helpers\Formations\FourFourTwo.vb" />
+    <Compile Include="Helpers\Formations\FourThreeThree.vb" />
+    <Compile Include="Models\Competition\CreateCompetitionViewModel.vb" />
+    <Compile Include="Models\PlayerHome\PlayerPickerForm.vb" />
+    <Compile Include="Controllers\FrontEnd\TheListController.vb" />
+    <Compile Include="Helpers\Helpers.vb" />
+    <Compile Include="Models\LaGigaRegisterIndexModel.vb" />
+    <Compile Include="Controllers\FrontEnd\LeagueController.vb" />
+    <Compile Include="Models\Player\PlayerTransferIndexModel.vb" />
+    <Compile Include="Helpers\BaseResult.vb" />
+    <Compile Include="Models\League\LeagueRepository.vb" />
+    <Compile Include="Models\Competition\CompetitionRepository.vb" />
+    <Compile Include="Models\Fixture\AddEventCalculator.vb" />
+    <Compile Include="Models\Home\HomeIndexModel.vb" />
+    <Compile Include="Models\Home\HomeRepository.vb" />
+    <Compile Include="Models\Home\RealWeekFixturesIndexModel.vb" />
+    <Compile Include="Models\League\LeagueIndexModel.vb" />
+    <Compile Include="Models\TheList\PlayerEventModel.vb" />
+    <Compile Include="Models\TheList\PlayerHomeEventIndexModel.vb" />
+    <Compile Include="Models\PlayerHome\ResultEventModel.vb" />
+    <Compile Include="Models\TheList\TheListModelAdapter.vb" />
+    <Compile Include="Models\TheList\TheListPlayerBasicInfoModel.vb" />
+    <Compile Include="Models\TheList\TheListPlayerDetailModel.vb" />
+    <Compile Include="Models\TheList\TheListRepository.vb" />
+    <Compile Include="Models\TheList\TheListService.vb" />
+    <Compile Include="Models\UserGroup\UserGroupRepository.vb" />
+    <Compile Include="Models\UserPlayer\PlayerListModel.vb" />
+    <Compile Include="Models\UserTeam\UserTeamEditIndexModel.vb" />
+    <Compile Include="Models\Utilities\ErrorIndexModel.vb" />
+    <Compile Include="Models\Utilities\Result.vb" />
+    <Compile Include="Models\Utilities\StandardFunctions.vb" />
+    <Compile Include="Models\TheList\TheListIndexModel.vb" />
+    <Compile Include="Models\PlayerHome\SeasonResultIndexModel.vb" />
+    <Compile Include="Helpers\RegCss.vb" />
+    <Compile Include="Helpers\RegScript.vb" />
+    <Compile Include="Models\PlayerHome\IPlayerHomeRepository.vb" />
+    <Compile Include="Models\PlayerHome\IPlayerHomeService.vb" />
+    <Compile Include="Models\PlayerHome\PickPlayerIndexModel.vb" />
+    <Compile Include="Controllers\FrontEnd\PlayerHomeController.vb" />
+    <Compile Include="Controllers\Admin\UserPlayerController.vb" />
+    <Compile Include="Models\PlayerHome\PlayerHomeIndexModel.vb" />
+    <Compile Include="Models\PlayerHome\PlayerHomeRepository.vb" />
+    <Compile Include="Models\PlayerHome\PlayerHomeService.vb" />
+    <Compile Include="Models\UserPlayer\UserPlayerStaticClass.vb" />
+    <Compile Include="Models\UserPlayer\IUserPlayerRepository.vb" />
+    <Compile Include="Models\UserPlayer\UserPlayerRepository.vb" />
+    <Compile Include="Models\UserPlayer\UserPlayerService.vb" />
+    <Compile Include="Models\UserPlayer\IUserPlayerService.vb" />
+    <Compile Include="Controllers\Admin\UserTeamController.vb" />
+    <Compile Include="Models\UserPlayer\UserPlayerIndexModel.vb" />
+    <Compile Include="Models\UserTeam\IUserTeamService.vb" />
+    <Compile Include="Models\UserTeam\UserTeamService.vb" />
+    <Compile Include="Models\UserTeam\IUserTeamRepository.vb" />
+    <Compile Include="Models\UserTeam\UserTeamRepository.vb" />
+    <Compile Include="Models\EventType\EventTypeIndexModel.vb" />
+    <Compile Include="Models\Event\EventIndexModel.vb" />
+    <Compile Include="Controllers\Admin\EventTypeController.vb" />
+    <Compile Include="Controllers\Admin\FixtureController.vb" />
+    <Compile Include="Models\Event\EventRepository.vb" />
+    <Compile Include="Models\Event\EventService.vb" />
+    <Compile Include="Models\Event\IEventRepository.vb" />
+    <Compile Include="Models\Event\IEventService.vb" />
+    <Compile Include="Models\Fixture\FixtureEditModel.vb" />
+    <Compile Include="Models\Fixture\FixtureIndexModel.vb" />
+    <Compile Include="Controllers\Admin\PlayerController.vb" />
+    <Compile Include="Controllers\Admin\WeekController.vb" />
+    <Compile Include="Models\UserTeam\UserTeamIndexModel.vb" />
+    <Compile Include="Models\Week\WeekIndexModel.vb" />
+    <Compile Include="Models\Fixture\FixtureRepository.vb" />
+    <Compile Include="Models\Fixture\FixtureService.vb" />
+    <Compile Include="Models\Fixture\IFixtureRepository.vb" />
+    <Compile Include="Models\Fixture\IFixtureService.vb" />
+    <Compile Include="Models\Player\PlayerIndexModel.vb" />
+    <Compile Include="Controllers\Admin\TeamController.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ButtonHelper.vb" />
+    <Compile Include="Helpers\ImageActionLinkHelper.vb" />
+    <Compile Include="Helpers\SelectedHelper.vb" />
+    <Compile Include="Models\EventType\EventTypeRepository.vb" />
+    <Compile Include="Models\EventType\EventTypeService.vb" />
+    <Compile Include="Models\EventType\IEventTypeRepository.vb" />
+    <Compile Include="Models\EventType\IEventTypeService.vb" />
+    <Compile Include="Models\LaGigaClasses.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaGigaClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LaGigaClasses.vb">
+      <DependentUpon>LaGigaClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Player\IPlayerRepository.vb" />
+    <Compile Include="Models\Player\IPlayerService.vb" />
+    <Compile Include="Models\Player\PlayerRepository.vb" />
+    <Compile Include="Models\Player\PlayerService.vb" />
+    <Compile Include="Models\Team\ITeamRepository.vb" />
+    <Compile Include="Models\Team\ITeamService.vb" />
+    <Compile Include="Models\Team\TeamRepository.vb" />
+    <Compile Include="Models\Team\TeamService.vb" />
+    <Compile Include="Helpers\Validation\IValidationDictionary.vb" />
+    <Compile Include="Helpers\Validation\ModelStateWrapper.vb" />
+    <Compile Include="Models\Team\TeamIndexModel.vb" />
+    <Compile Include="Models\Week\WeekRepository.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controllers\FrontEnd\AccountController.vb" />
+    <Compile Include="Controllers\FrontEnd\HomeController.vb" />
+    <Compile Include="Models\AccountModels.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.rb" />
+    <None Include="Models\LaGigaClasses.dbml.layout">
+      <DependentUpon>LaGigaClasses.dbml</DependentUpon>
+    </None>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Content\down_arrow%28large%29.png" />
+    <Content Include="Content\ffDugoutHome.png" />
+    <Content Include="Content\ffDugoutHomeDB.png" />
+    <Content Include="Content\football-icon.png" />
+    <Content Include="Content\green_arrow.png" />
+    <Content Include="Content\home-on.png" />
+    <Content Include="Content\Next_Black_Arrow.png" />
+    <Content Include="Content\no-image-icon-md.png" />
+    <Content Include="Content\OrigEdit.png" />
+    <Content Include="Content\originaldelete.png" />
+    <Content Include="Content\StadiumPhoto1.jpg" />
+    <Content Include="Content\StadiumPhoto2.jpg" />
+    <Content Include="Content\thelist.png" />
+    <Content Include="Content\Warning_Icon_96x96.png" />
+    <Content Include="images\foundation\orbit\bullets.jpg" />
+    <Content Include="images\foundation\orbit\left-arrow-small.png" />
+    <Content Include="images\foundation\orbit\left-arrow.png" />
+    <Content Include="images\foundation\orbit\loading.gif" />
+    <Content Include="images\foundation\orbit\mask-black.png" />
+    <Content Include="images\foundation\orbit\pause-black.png" />
+    <Content Include="images\foundation\orbit\right-arrow-small.png" />
+    <Content Include="images\foundation\orbit\right-arrow.png" />
+    <Content Include="images\foundation\orbit\rotator-black.png" />
+    <Content Include="images\foundation\orbit\timer-black.png" />
+    <Content Include="javascripts\foundation\app.js" />
+    <Content Include="javascripts\foundation\jquery.cookie.js" />
+    <Content Include="javascripts\foundation\jquery.event.move.js" />
+    <Content Include="javascripts\foundation\jquery.event.swipe.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.accordion.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.alerts.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.buttons.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.clearing.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.forms.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.joyride.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.magellan.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.mediaQueryToggle.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.navigation.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.orbit.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.reveal.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.tabs.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.tooltips.js" />
+    <Content Include="javascripts\foundation\jquery.foundation.topbar.js" />
+    <Content Include="javascripts\foundation\jquery.js" />
+    <Content Include="javascripts\foundation\jquery.offcanvas.js" />
+    <Content Include="javascripts\foundation\jquery.placeholder.js" />
+    <Content Include="javascripts\foundation\modernizr.foundation.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-icons_454545_256x240.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-icons_888888_256x240.png" />
+    <Content Include="Scripts\jquerytheme\flick\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="stylesheets\app.css" />
+    <Content Include="stylesheets\common.css" />
+    <Content Include="Views\Competition\competitionList.ascx" />
+    <Content Include="Views\Competition\Create.aspx" />
+    <Content Include="Views\Competition\Edit.aspx" />
+    <Content Include="Views\Competition\Index.aspx" />
+    <Content Include="Views\League\GameWeekFixtures.ascx" />
+    <Content Include="Views\League\LeagueIndex.aspx" />
+    <Content Include="Views\Shared\Admin.Master" />
+    <Content Include="Views\Shared\Master.Master" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="packages.config" />
+    <Content Include="Views\TheList\TheList.vbhtml" />
+    <Content Include="Views\Shared\_FrontEndLayout.vbhtml" />
+    <Content Include="Views\TheList\TheListPlayers.vbhtml" />
+    <Content Include="Views\TheList\TheListPlayerEvents.vbhtml" />
+    <Content Include="Scripts\jquerytheme\flick\jquery-ui-flick.css" />
+    <Content Include="Scripts\spin-1-2-7.min.js" />
+    <Content Include="Views\TheList\PlayerBasicInfo.vbhtml" />
+    <Content Include="Views\Home\Index.vbhtml" />
+    <Content Include="sass\app.scss" />
+    <Content Include="sass\_settings.scss" />
+    <None Include="sass\common.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\LaGigaClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LaGigaClasses.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\82.gif" />
+    <Content Include="Content\Black_Arrow.png" />
+    <Content Include="Content\copyrightsymbol.jpg" />
+    <Content Include="Content\delete.png" />
+    <Content Include="Content\Edit.png" />
+    <Content Include="Content\EventDetail.png" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\icon-error.png" />
+    <Content Include="Content\Stadium3.jpg" />
+    <Content Include="Content\thefantasydugout.jpg" />
+    <Content Include="Content\Tick.png" />
+    <Content Include="Content\world-cup-trophy.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-ui-1.9.1.flick.min.js" />
+    <Content Include="stylesheets\FrontEndMaster.css" />
+    <Content Include="Views\EventType\Create.aspx" />
+    <Content Include="Views\EventType\Delete.aspx" />
+    <Content Include="Views\EventType\Edit.aspx" />
+    <Content Include="Views\EventType\EventTypeList.ascx" />
+    <Content Include="Views\EventType\EventTypeIndex.aspx" />
+    <Content Include="Views\Event\Create.aspx" />
+    <Content Include="Views\Fixture\AddEvent.ascx" />
+    <Content Include="Views\Fixture\Create.aspx" />
+    <Content Include="Views\Fixture\DeleteEvent.aspx" />
+    <Content Include="Views\Fixture\Edit.aspx" />
+    <Content Include="Views\Fixture\EventEdit.aspx" />
+    <Content Include="Views\Fixture\FixtureIndex.aspx" />
+    <Content Include="Views\Fixture\FixtureList.ascx" />
+    <Content Include="Views\Fixture\ViewFixtureEvents.ascx" />
+    <Content Include="Views\Fixture\ViewFixture.aspx" />
+    <Content Include="Views\Shared\RealWeekFixtures.ascx" />
+    <Content Include="Views\PlayerHome\OppositionResults.ascx" />
+    <Content Include="Views\PlayerHome\PlayerHomeIndex.aspx" />
+    <Content Include="Views\PlayerHome\PlayerPicker.ascx" />
+    <Content Include="Views\Shared\SeasonResults.ascx" />
+    <Content Include="Views\PlayerHome\WeekResults.ascx" />
+    <Content Include="Views\Shared\UserTeamError.ascx" />
+    <Content Include="Views\Shared\results.ascx" />
+    <Content Include="Views\Player\Create.aspx" />
+    <Content Include="Views\Player\Edit.aspx" />
+    <Content Include="Views\Player\PlayerList.ascx" />
+    <Content Include="Views\Player\PlayerIndex.aspx" />
+    <Content Include="Views\Team\Create.aspx" />
+    <Content Include="Views\Team\Delete.aspx" />
+    <Content Include="Views\Team\Edit.aspx" />
+    <Content Include="Views\Team\TeamIndex.aspx" />
+    <Content Include="Views\Team\TeamList.ascx" />
+    <Content Include="Views\UserPlayer\SecondList.ascx" />
+    <Content Include="Views\UserTeam\Create.aspx" />
+    <Content Include="Views\UserPlayer\CreateUserPlayer.aspx" />
+    <Content Include="Views\UserTeam\Edit.aspx" />
+    <Content Include="Views\UserTeam\UserPlayerIndex.aspx" />
+    <Content Include="Views\UserTeam\UserPlayerList.ascx" />
+    <Content Include="Views\UserTeam\UserTeamIndex.aspx" />
+    <Content Include="Views\UserTeam\UserTeamList.ascx" />
+    <Content Include="Views\Week\Create.aspx" />
+    <Content Include="Views\Week\Edit.aspx" />
+    <Content Include="Views\Week\WeekIndex.aspx" />
+    <Content Include="Views\Week\WeekList.ascx" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="stylesheets\Site.css" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Account\ChangePassword.aspx" />
+    <Content Include="Views\Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Views\Account\LogOn.aspx" />
+    <Content Include="Views\Account\Register.aspx" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Home\AdminIndex.aspx" />
+    <Content Include="Views\Shared\Error.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2676</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

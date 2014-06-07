@@ -1,0 +1,54 @@
+<%@ Master Language="VB" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="LaGiga" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <META NAME="robots" CONTENT="NOODP">
+    <META http-equiv="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <META NAME="description" CONTENT="Alternative Fantasy Football - The Fantasy Dugout" />
+    <META NAME="keywords" CONTENT="The Fantasy Dugout, Alternative Fantasy Football, thefantasydugout, Fantasy Football, Dugout, Football" />
+
+    <link rel="shortcut icon" href="../../Content/favicon.ico"/>
+
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <%= Html.RegScript("MicrosoftAjax.js")%>
+    <%= Html.RegScript("MicrosoftMvcAjax.js")%>
+    <%= Html.RegScript("MicrosoftMvcValidation.js")%>
+    
+    <link type="text/css" href="/Scripts/jquerytheme/flick/jquery-ui-flick.css" rel="stylesheet" />
+    
+    <script src="/Scripts/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery-ui-1.9.1.flick.min.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadPlaceHolder" runat="server" />
+</head>
+
+<body>
+    <div class="page">
+        <div id="header">
+            
+            <div id="divTheFantasyDugoutTitle">
+                <img alt="The Fantasy Dugout" src="/Content/thefantasydugout.jpg" title="The Fantasy Dugout"/>
+            </div>
+            <asp:ContentPlaceHolder ID="HeaderMainContent" runat="server" />
+            <div id="menucontainer">
+                <ul id="menu">              
+                    <li id="One"><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li id="Two"><%: Html.ActionLink("Team", "PlayerHomeIndex", "PlayerHome")%></li>
+                    <li id="Li1"><%: Html.ActionLink("The List", "GetTheList", "TheList")%></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div id="footer">
+            <asp:ContentPlaceHolder ID="FooterMainContent" runat="server" />
+        </div>
+
+    </div>
+</body>
+</html>

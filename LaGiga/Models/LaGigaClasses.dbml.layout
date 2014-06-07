@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.5, 13.5" name="LaGigaClasses">
+  <DataContextMoniker Name="/LaGigaClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" absoluteBounds="3.5, 8, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Player" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95469ed0-de3d-41ee-acf0-b5dc93978ac4" absoluteBounds="3.515, 8.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56192017-c1e8-4b66-a318-88a5f692f521" absoluteBounds="5.75, 3.5, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Fixture" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27b4ec80-fe4f-4814-b9a1-25078e74b7b1" absoluteBounds="5.7650000000000006, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d1b8ad8b-9c9f-496e-a20e-edc281d8c66c" absoluteBounds="3.875, 10.625, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/EventType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="305522e9-ef42-4c6b-8a22-33884b0979cd" absoluteBounds="3.89, 11.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b9c54f3c-5161-446e-90a9-78c54a033adf" absoluteBounds="8.5, 10.875, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="42443972-ee26-4dac-b773-19ddaaa1f091" absoluteBounds="8.515, 11.335, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 12.3958968098958); (4.875 : 12.8093494583333); (8.5 : 12.8093494583333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/EventType/EventType_Event" />
+      <nodes>
+        <classShapeMoniker Id="d1b8ad8b-9c9f-496e-a20e-edc281d8c66c" />
+        <classShapeMoniker Id="b9c54f3c-5161-446e-90a9-78c54a033adf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.65625 : 9.9631982421875); (3.65625 : 13.0473277825521); (8.5 : 13.0473277825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Player/Player_Event" />
+      <nodes>
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+        <classShapeMoniker Id="b9c54f3c-5161-446e-90a9-78c54a033adf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9b4f2bad-4a51-42ac-87ea-33a8096a4405" absoluteBounds="10.25, 8.25, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/SeasonResult" />
+      <nestedChildShapes>
+        <elementListCompartment Id="98758f56-224c-40d1-bd16-25f25a0e41ee" absoluteBounds="10.265, 8.71, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d4e2843-005e-4f31-a707-a390f7eda2d5" absoluteBounds="7.25, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/UserFixtureCalculation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="84536a25-826f-4fb4-9ab1-d9acdb98f9ca" absoluteBounds="7.2650000000000006, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="586224f9-57d1-4641-a54c-420b779d3a7b" absoluteBounds="4.25, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/UserTeam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e2bcca9-52c3-464e-b42a-80fa0d1099b3" absoluteBounds="4.265, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.53125 : 2.32859537760417); (5.53125 : 7.9375); (9.90104166666667 : 7.9375 : JumpStart); (10.0677083333333 : 7.9375 : JumpEnd); (10.15625 : 7.9375); (10.15625 : 9.42390055338542); (10.25 : 9.42390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserTeam/UserTeam_SeasonResult" />
+      <nodes>
+        <classShapeMoniker Id="586224f9-57d1-4641-a54c-420b779d3a7b" />
+        <classShapeMoniker Id="9b4f2bad-4a51-42ac-87ea-33a8096a4405" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 1.53929768880208); (7.25 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserTeam/UserTeam_UserFixtureCalculation" />
+      <nodes>
+        <classShapeMoniker Id="586224f9-57d1-4641-a54c-420b779d3a7b" />
+        <classShapeMoniker Id="3d4e2843-005e-4f31-a707-a390f7eda2d5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.25 : 1.08214884440104); (7.25 : 1.08214884440104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserTeam/UserTeam_UserFixtureCalculation1" />
+      <nodes>
+        <classShapeMoniker Id="586224f9-57d1-4641-a54c-420b779d3a7b" />
+        <classShapeMoniker Id="3d4e2843-005e-4f31-a707-a390f7eda2d5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0d290817-fa7d-4ecc-868c-732fa417d7a4" absoluteBounds="9.5, 1.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/UserPlayer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7d14eab2-6bed-4067-9b82-494ada259bb2" absoluteBounds="9.515, 2.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.5 : 8); (4.5 : 6.95359537760417); (4.69791666666667 : 6.95359537760417 : JumpStart); (4.86458333333333 : 6.95359537760417 : JumpEnd); (5.375 : 6.95359537760417); (5.375 : 3.25522670247396); (9.5 : 3.25522670247396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Player/Player_UserPlayer" />
+      <nodes>
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+        <classShapeMoniker Id="0d290817-fa7d-4ecc-868c-732fa417d7a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 2.32859537760417); (5.25 : 3.01044840494792); (9.5 : 3.01044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserTeam/UserTeam_UserPlayer" />
+      <nodes>
+        <classShapeMoniker Id="586224f9-57d1-4641-a54c-420b779d3a7b" />
+        <classShapeMoniker Id="0d290817-fa7d-4ecc-868c-732fa417d7a4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="90b855f0-bbea-4bb3-82d9-8548eeddd655" absoluteBounds="5.875, 5.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Transfer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fc4112a9-7181-439e-9742-bc0a78deb31a" absoluteBounds="5.89, 6.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 8); (5.875 : 7.7131982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Player/Player_Transfer" />
+      <nodes>
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+        <classShapeMoniker Id="90b855f0-bbea-4bb3-82d9-8548eeddd655" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3a923f01-7679-46a1-a1cb-7fbbfaf6b5cf" absoluteBounds="9.5, 3.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Week" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85631052-bfe8-4218-9f70-75363dff83e4" absoluteBounds="9.515, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.5 : 4.60659912109375); (7.75 : 4.60659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Week/Week_Fixture" />
+      <nodes>
+        <classShapeMoniker Id="3a923f01-7679-46a1-a1cb-7fbbfaf6b5cf" />
+        <classShapeMoniker Id="56192017-c1e8-4b66-a318-88a5f692f521" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.984375 : 5.90549967447917); (9.984375 : 10.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Week/Week_Event" />
+      <nodes>
+        <classShapeMoniker Id="3a923f01-7679-46a1-a1cb-7fbbfaf6b5cf" />
+        <classShapeMoniker Id="b9c54f3c-5161-446e-90a9-78c54a033adf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a6fbf94d-cc38-442d-885e-baa73e3aaf6b" absoluteBounds="1.125, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/UserGroup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8313ea27-ac74-44e1-b5af-84f53881394c" absoluteBounds="1.1399999999999997, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 1.56814697265625); (4.25 : 1.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserGroup/UserGroup_UserTeam" />
+      <nodes>
+        <classShapeMoniker Id="a6fbf94d-cc38-442d-885e-baa73e3aaf6b" />
+        <classShapeMoniker Id="586224f9-57d1-4641-a54c-420b779d3a7b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.84375 : 2.2612939453125); (2.84375 : 2.69794840494792); (5.16666666666667 : 2.69794840494792 : JumpStart); (5.33333333333333 : 2.69794840494792 : JumpEnd); (9.5 : 2.69794840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/UserGroup/UserGroup_UserPlayer" />
+      <nodes>
+        <classShapeMoniker Id="a6fbf94d-cc38-442d-885e-baa73e3aaf6b" />
+        <classShapeMoniker Id="0d290817-fa7d-4ecc-868c-732fa417d7a4" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="4b282b89-93c0-41a8-88fe-aa0f8c4c5f73" absoluteBounds="0.5, 2.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/WeekUserPlayer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ce62e539-6ce7-443e-a6f1-855cd4a0bf95" absoluteBounds="0.51499999999999968, 3.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.3125 : 8); (5.3125 : 3.56511222623698); (2.5 : 3.56511222623698)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Player/Player_WeekUserPlayer" />
+      <nodes>
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+        <classShapeMoniker Id="4b282b89-93c0-41a8-88fe-aa0f8c4c5f73" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b71dea86-5543-49b5-8dff-7eac3244e898" absoluteBounds="3.125, 5.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Team" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb7066a3-1cab-47e3-b69a-419b3735dfdf" absoluteBounds="3.1399999999999997, 5.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.3125 : 6.70359537760417); (4.3125 : 8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Team/Team_Player" />
+      <nodes>
+        <classShapeMoniker Id="b71dea86-5543-49b5-8dff-7eac3244e898" />
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.78125 : 6.70359537760417); (4.78125 : 8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Team/Team_Player1" />
+      <nodes>
+        <classShapeMoniker Id="b71dea86-5543-49b5-8dff-7eac3244e898" />
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.125 : 5.125); (4.125 : 4.3124995); (4.57291866666667 : 4.3124995 : JumpStart); (4.73958533333333 : 4.3124995 : JumpEnd); (5.22916666666667 : 4.3124995 : JumpStart); (5.61458333333333 : 4.3124995 : JumpEnd); (5.75 : 4.3124995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Team/Team_Fixture" />
+      <nodes>
+        <classShapeMoniker Id="b71dea86-5543-49b5-8dff-7eac3244e898" />
+        <classShapeMoniker Id="56192017-c1e8-4b66-a318-88a5f692f521" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.656252 : 5.125); (4.656252 : 3.87499775); (5.22916666666667 : 3.87499775 : JumpStart); (5.61458333333333 : 3.87499775 : JumpEnd); (5.75 : 3.87499775)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Team/Team_Fixture1" />
+      <nodes>
+        <classShapeMoniker Id="b71dea86-5543-49b5-8dff-7eac3244e898" />
+        <classShapeMoniker Id="56192017-c1e8-4b66-a318-88a5f692f521" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 6.22679768880208); (5.22916666666667 : 6.22679768880208 : JumpStart); (5.61458333333333 : 6.22679768880208 : JumpEnd); (5.875 : 6.22679768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Team/Team_Transfer" />
+      <nodes>
+        <classShapeMoniker Id="b71dea86-5543-49b5-8dff-7eac3244e898" />
+        <classShapeMoniker Id="90b855f0-bbea-4bb3-82d9-8548eeddd655" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c782aeec-236b-4901-aa0a-55f87924d520" absoluteBounds="10.25, 6, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/Competition" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0937a3f-a543-4b4c-a853-8c99f27ef96b" absoluteBounds="10.265, 6.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.8750005 : 6); (11.8750005 : 2.76044840494792); (11.5 : 2.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Competition/Competition_UserPlayer" />
+      <nodes>
+        <classShapeMoniker Id="c782aeec-236b-4901-aa0a-55f87924d520" />
+        <classShapeMoniker Id="0d290817-fa7d-4ecc-868c-732fa417d7a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.875 : 6); (10.875 : 5.90549967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Competition/Competition_Week" />
+      <nodes>
+        <classShapeMoniker Id="c782aeec-236b-4901-aa0a-55f87924d520" />
+        <classShapeMoniker Id="3a923f01-7679-46a1-a1cb-7fbbfaf6b5cf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c23ab158-b38e-4921-b661-8ec375fdc42e" absoluteBounds="7.875, 8, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LaGigaClassesDataContext/TheList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40a8be25-d037-4a05-89ab-57d4de4614ba" absoluteBounds="7.8900000000000006, 8.46, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 9.01285162109375); (7.875 : 9.01285162109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Player/Player_TheList" />
+      <nodes>
+        <classShapeMoniker Id="a1d5bf89-ecef-4f38-a432-c7bd1a9a4922" />
+        <classShapeMoniker Id="c23ab158-b38e-4921-b661-8ec375fdc42e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 5.28730189778646); (8.6874975 : 5.28730189778646); (8.6874975 : 8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LaGigaClassesDataContext/Week/Week_TheList" />
+      <nodes>
+        <classShapeMoniker Id="3a923f01-7679-46a1-a1cb-7fbbfaf6b5cf" />
+        <classShapeMoniker Id="c23ab158-b38e-4921-b661-8ec375fdc42e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
